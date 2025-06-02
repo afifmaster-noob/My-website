@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
 body {
   font-family: Arial, sans-serif;
-  background: #fffde7; /* Latar kuning lembut */
+  background: #fffde7;
   padding: 20px;
   transition: background-color 0.5s ease;
 }
@@ -73,9 +71,7 @@ button:hover {
   margin-top: 10px;
   font-size: 16px;
   border: 2px solid #ffc107;
-  box-shadow:
-    0 0 8px #ffc107,
-    0 0 15px #ffca28;
+  box-shadow: 0 0 8px #ffc107, 0 0 15px #ffca28;
 }
 
 .result-table th, .result-table td {
@@ -102,16 +98,24 @@ button:hover {
   border-top: 3px solid #ffc107;
 }
 
-/* Jumlah komisen bulanan yang besar dan glowing */
-#totalCommissionDisplay {
-  font-size: 32px;
-  font-weight: bold;
+#totalCommissionBox {
   margin-top: 30px;
-  color: #000;
+  padding: 20px;
+  background: #fff3cd;
+  border: 3px solid #ffc107;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px #ffc107, 0 0 20px #ffca28;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#totalCommissionDisplay {
+  font-size: 36px;
+  font-weight: bold;
+  color: #856404;
   text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
 }
 
-/* Rainbow credit text */
 @keyframes rainbow {
   0% { color: red; }
   20% { color: orange; }
@@ -129,7 +133,6 @@ button:hover {
   font-family: 'Pacifico', cursive;
 }
 
-/* Muzik Toggle Button */
 .music-toggle {
   position: fixed;
   top: 15px;
@@ -142,10 +145,6 @@ button:hover {
   background-repeat: no-repeat;
   cursor: pointer;
   outline: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   transition: transform 0.2s ease;
 }
@@ -154,12 +153,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-.music-toggle:focus {
-  outline: none;
-}
-
-/* Fade In */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
-    }
+}
