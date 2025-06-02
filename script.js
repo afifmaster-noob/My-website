@@ -7,7 +7,6 @@ function kiraKomisen() {
     return;
   }
 
-  // Pembetulan: Pengiraan tier2 dan tier3 berdasarkan darab nombor sendiri
   const tier2 = tier1 * tier1;
   const tier3 = tier2 * tier2;
 
