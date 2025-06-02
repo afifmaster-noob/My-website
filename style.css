@@ -92,7 +92,7 @@ button:hover {
   color: #000;
 }
 
-/* Rainbow animation */
+/* Rainbow credit text */
 @keyframes rainbow {
   0% { color: red; }
   20% { color: orange; }
@@ -103,33 +103,35 @@ button:hover {
 }
 
 .credit {
-  position: static;
   font-size: 14px;
   animation: rainbow 5s infinite;
   margin-top: 60px;
   text-align: left;
 }
 
-/* Muzik Toggle */
+/* Muzik Toggle Button */
 .music-toggle {
   position: fixed;
   top: 15px;
   left: 15px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-image: url('sound-on.png');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
-
-  /* Hilangkan highlight biru */
+  outline: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.05);
 }
 
 .music-toggle:focus {
@@ -140,4 +142,4 @@ button:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
-}
+  }
