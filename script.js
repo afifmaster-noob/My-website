@@ -7,25 +7,20 @@ function kiraKomisen() {
     return;
   }
 
-  // Kiraan Tier
   const tier1 = dealerCount;
   const tier2 = tier1 * 10;
   const tier3 = tier2 * 10;
 
-  // Topup Bulanan Setiap Tier
   const topupTier1 = tier1 * topupPerUser;
   const topupTier2 = tier2 * topupPerUser;
   const topupTier3 = tier3 * topupPerUser;
 
-  // Komisen
   const komisenTier1 = topupTier1 * 0.10;
   const komisenTier2 = topupTier2 * 0.03;
   const komisenTier3 = topupTier3 * 0.02;
 
-  // Jumlah Keseluruhan
   const jumlahKomisen = komisenTier1 + komisenTier2 + komisenTier3;
 
-  // Paparkan grid
   const outputDiv = document.getElementById("output");
   outputDiv.classList.add("show");
 
@@ -60,20 +55,6 @@ function kiraKomisen() {
         </tr>
       </tbody>
     </table>
-    <div class="total">Jumlah Pendapatan: <strong>RM ${jumlahKomisen.toFixed(2)}</strong></div>
+    <div class="total">Jumlah Pendapatan: RM ${jumlahKomisen.toFixed(2)}</div>
   `;
-}
-
-// Fungsi toggle muzik
-function toggleMusic() {
-  const music = document.getElementById('background-music');
-  const icon = document.getElementById('music-icon');
-
-  if (music.paused) {
-    music.play();
-    icon.src = "sound-on.png";
-  } else {
-    music.pause();
-    icon.src = "sound-off.png";
-  }
 }
