@@ -1,19 +1,3 @@
-const audio = document.getElementById('background-music');
-const musicToggle = document.getElementById('music-toggle');
-
-musicToggle.addEventListener('click', () => {
-  if (audio.paused) {
-    audio.play();
-    musicToggle.style.backgroundImage = "url('sound-on.png')";
-  } else {
-    audio.pause();
-    musicToggle.style.backgroundImage = "url('sound-off.png')";
-  }
-});
-
-// Disable klik kanan pada toggle button supaya orang tak boleh save gambar
-musicToggle.addEventListener('contextmenu', e => e.preventDefault());
-
 function kiraKomisen() {
   const dealerCount = parseInt(document.getElementById('pengguna').value);
   const topupPerUser = parseFloat(document.getElementById('komisen').value);
@@ -69,4 +53,18 @@ function kiraKomisen() {
     </table>
     <div class="total">Jumlah Pendapatan: RM ${jumlahKomisen.toFixed(2)}</div>
   `;
+}
+
+// Muzik Toggle
+const audio = document.getElementById('background-music');
+const musicToggle = document.getElementById('music-toggle');
+
+function toggleMusic() {
+  if (audio.paused) {
+    audio.play();
+    musicToggle.style.backgroundImage = "url('sound-on.png')";
+  } else {
+    audio.pause();
+    musicToggle.style.backgroundImage = "url('sound-off.png')";
+  }
 }
