@@ -110,29 +110,18 @@ button:hover {
   text-align: left;
 }
 
-/* Muzik Toggle - tanpa background bulat */
+/* Muzik Toggle dengan background image */
 .music-toggle {
   position: fixed;
   top: 15px;
   left: 15px;
-  cursor: pointer;
-  z-index: 1000;
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
-  transition: none;
-}
-
-.music-toggle:hover {
-  background: transparent;
-}
-
-.music-toggle img {
   width: 32px;
   height: 32px;
-  display: block;
-  user-select: none;
+  background-image: url('sound-off.png'); /* default off */
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  z-index: 1000;
 }
 
 /* Fade In */
