@@ -10,7 +10,8 @@ body {
   background: #fff;
   border-radius: 10px;
   padding: 25px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease;
 }
 
 h1 {
@@ -43,48 +44,59 @@ button {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 button:hover {
   background: #218838;
 }
 
-/* Grid Hasil */
-.result-container {
+#output {
   margin-top: 30px;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.08);
-  animation: fadeIn 1s ease-in-out;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#output.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .result-table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 10px;
 }
 
-.result-table th,
-.result-table td {
-  padding: 14px;
+.result-table th, .result-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
   text-align: center;
-  border: 1px solid #ddd;
-  font-size: 16px;
 }
 
 .result-table th {
-  background-color: #e6e6e6;
-  font-weight: bold;
+  background: #007bff;
+  color: white;
 }
 
-/* Animasi Fade In */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.result-table td {
+  background: #f9f9f9;
 }
 
-/* Kredit RGB */
+/* Muzik */
+.music-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+}
+
+.music-toggle img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Kredit pelangi */
 @keyframes rainbow {
   0% { color: red; }
   20% { color: orange; }
@@ -100,20 +112,10 @@ button:hover {
   left: 10px;
   font-size: 12px;
   animation: rainbow 5s infinite;
-  background: none;
-  padding: 0;
-  margin: 0;
 }
 
-/* Muzik Toggle */
-.music-toggle {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  cursor: pointer;
-}
-
-.music-toggle img {
-  width: 30px;
-  height: 30px;
+/* Animasi Fade */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
