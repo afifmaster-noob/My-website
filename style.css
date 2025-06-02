@@ -2,6 +2,8 @@ body {
   font-family: Arial, sans-serif;
   background: #f0f0f0;
   padding: 20px;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .container {
@@ -38,8 +40,9 @@ button {
   margin-top: 20px;
   width: 100%;
   padding: 12px;
-  background: #28a745;
+  background: none;
   color: white;
+  background-color: #28a745;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -110,18 +113,19 @@ button:hover {
   text-align: left;
 }
 
-/* Muzik Toggle dengan background image */
+/* Muzik Toggle (guna background image) */
 .music-toggle {
   position: fixed;
   top: 15px;
   left: 15px;
-  width: 32px;
-  height: 32px;
-  background-image: url('sound-off.png'); /* default off */
-  background-size: contain;
+  width: 40px;
+  height: 40px;
+  background-image: url('sound-on.png');
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 /* Fade In */
