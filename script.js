@@ -18,7 +18,7 @@ function kiraKomisen() {
   const jumlahKomisen = komisenTier1 + komisenTier2 + komisenTier3;
 
   const outputDiv = document.getElementById("output");
-  outputDiv.classList.add("show");
+  outputDiv.classList.add("show", "highlighted-output");
 
   outputDiv.innerHTML = `
     <table class="result-table">
@@ -51,7 +51,7 @@ function kiraKomisen() {
         </tr>
       </tbody>
     </table>
-    <div class="total">Jumlah Pendapatan: RM ${jumlahKomisen.toFixed(2)}</div>
+    <div class="total">Jumlah Komisyen Bulanan: RM ${jumlahKomisen.toFixed(2)}</div>
   `;
 }
 
@@ -67,4 +67,4 @@ function toggleMusic() {
     audio.pause();
     toggle.style.backgroundImage = "url('sound-off.png')";
   }
-            }
+}
