@@ -2,10 +2,8 @@ function kiraKomisen() {
   const dealerCount = parseInt(document.getElementById('pengguna').value);
   const topupPerUser = parseFloat(document.getElementById('komisen').value);
 
-  if (isNaN(dealerCount) || isNaN(topupPerUser) || dealerCount <= 0 || topupPerUser <= 0) {
-    alert("Sila isi semua ruangan dengan betul.");
-    return;
-  }
+  // Elak error jika kosong atau input pelik
+  if (!dealerCount || !topupPerUser) return;
 
   const tier1 = dealerCount;
   const tier2 = tier1 * 10;
@@ -22,8 +20,6 @@ function kiraKomisen() {
   const jumlahKomisen = komisenTier1 + komisenTier2 + komisenTier3;
 
   const outputDiv = document.getElementById("output");
-  outputDiv.classList.add("show");
-
   outputDiv.innerHTML = `
     <table class="result-table">
       <thead>
