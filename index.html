@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KIRA-KIRA KOMISYEN HALOTELCO</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KIRA KOMISEN HALOTELCO</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>KIRA-KIRA KOMISYEN HALOTELCO</h1>
+    <h1>KIRA KOMISEN HALOTELCO</h1>
 
-    <label for="dealer">Bilangan dealer Tier 1:</label>
-    <input type="number" id="dealer" placeholder="Contoh: 10" />
+    <label for="dealer-tier1">Bilangan Dealer Tier 1:</label>
+    <input type="number" id="dealer-tier1" placeholder="Contoh: 10">
 
-    <label for="topup">Topup bulanan setiap dealer (RM):</label>
-    <input type="number" id="topup" placeholder="Contoh: 100" />
+    <label for="topup">Jumlah Topup setiap dealer (RM):</label>
+    <input type="number" id="topup" placeholder="Contoh: 30">
 
-    <button onclick="kiraKomisen()">Kira Komisen</button>
+    <button id="kira-button">Kira</button>
 
-    <div id="result-container" class="result-container"></div>
+    <div id="output" class="hidden"></div>
   </div>
 
   <!-- Butang Muzik -->
   <div class="music-toggle">
-    <img id="music-icon" src="sound-on.png" alt="Music Toggle" onclick="toggleMusic()" />
+    <img id="music-icon" src="sound-on.png" alt="Toggle Music">
   </div>
 
   <!-- Muzik Latar -->
   <audio id="background-music" loop autoplay>
-    <source src="Magical-Moments-chosic.com_.mp3" type="audio/mpeg" />
+    <source src="Magical-Moments-chosic.com_.mp3" type="audio/mpeg">
   </audio>
 
   <!-- Kredit -->
-  <p class="credit">Web by Tokcik62 | Music: Purrple Cat</p>
+  <p class="credit">Web ini dibuat daripada Tokcik62 | Muzik: Purrple Cat</p>
 
   <script src="script.js"></script>
 </body>
-  </html>
+</html>
