@@ -2,8 +2,6 @@ body {
   font-family: Arial, sans-serif;
   background: #f0f0f0;
   padding: 20px;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
 }
 
 .container {
@@ -40,9 +38,8 @@ button {
   margin-top: 20px;
   width: 100%;
   padding: 12px;
-  background: none;
+  background: #28a745;
   color: white;
-  background-color: #28a745;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -113,19 +110,30 @@ button:hover {
   text-align: left;
 }
 
-/* Muzik Toggle (guna background image) */
+/* Muzik Toggle */
 .music-toggle {
   position: fixed;
   top: 15px;
   left: 15px;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-image: url('sound-on.png');
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
   cursor: pointer;
-  z-index: 9999;
+
+  /* Hilangkan highlight biru */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+.music-toggle:focus {
+  outline: none;
 }
 
 /* Fade In */
