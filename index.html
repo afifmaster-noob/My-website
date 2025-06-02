@@ -9,6 +9,8 @@
 <body>
   <div class="container">
     <h1>KIRA-KIRA KOMINSYEN HALOTELCO</h1>
+
+    <!-- Komisen Biasa -->
     <label for="pengguna">Jumlah pengguna:</label>
     <input type="number" id="pengguna" placeholder="Contoh: 100">
 
@@ -16,8 +18,30 @@
     <input type="number" id="komisen" placeholder="Contoh: 5">
 
     <button onclick="kiraKomisen()">Kira</button>
-
     <div id="output"></div>
+
+    <hr>
+
+    <!-- Komisen Mengikut Tier -->
+    <h2>Kiraan Komisen Mengikut Tier</h2>
+
+    <label for="tier1">Jumlah Dealer Tier 1:</label>
+    <input type="number" id="tier1" placeholder="Contoh: 5">
+    <label for="topup1">Topup Bulanan setiap Dealer Tier 1 (RM):</label>
+    <input type="number" id="topup1" placeholder="Contoh: 30">
+
+    <label for="tier2">Jumlah Dealer Tier 2:</label>
+    <input type="number" id="tier2" placeholder="Contoh: 8">
+    <label for="topup2">Topup Bulanan setiap Dealer Tier 2 (RM):</label>
+    <input type="number" id="topup2" placeholder="Contoh: 20">
+
+    <label for="tier3">Jumlah Dealer Tier 3:</label>
+    <input type="number" id="tier3" placeholder="Contoh: 10">
+    <label for="topup3">Topup Bulanan setiap Dealer Tier 3 (RM):</label>
+    <input type="number" id="topup3" placeholder="Contoh: 10">
+
+    <button onclick="kiraKomisenTier()">Kira Komisen Tier</button>
+    <div id="result-tier" class="result-tier"></div>
   </div>
 
   <!-- Butang Muzik -->
@@ -31,7 +55,7 @@
   </audio>
 
   <!-- Kredit -->
-  <p class="credit">Web by Tokcik62 | Music: Purrple Cat</p>
+  <p class="credit">Web ini dibuat daripada Tokcik62 | Music: Purrple Cat</p>
 
   <script src="script.js"></script>
 </body>
