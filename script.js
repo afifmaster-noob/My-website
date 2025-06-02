@@ -1,9 +1,12 @@
 function kiraKomisen() {
-  const pengguna = document.getElementById("pengguna").value;
-  const komisen = document.getElementById("komisen").value;
+  const pengguna = parseFloat(document.getElementById("pengguna").value);
+  const komisen = parseFloat(document.getElementById("komisen").value);
 
-  const total = pengguna * komisen;
+  if (isNaN(pengguna) || isNaN(komisen)) {
+    document.getElementById("output").innerText = "Sila isi kedua-dua nilai dengan betul.";
+    return;
+  }
 
-  document.getElementById("output").innerHTML = 
-    `Jumlah komisen bulanan: <strong>RM ${total.toFixed(2)}</strong>`;
+  const jumlah = pengguna * komisen;
+  document.getElementById("output").innerText = "Jumlah Komisen: RM " + jumlah.toFixed(2);
 }
