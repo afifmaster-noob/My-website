@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 600px;
   margin: auto;
   background: #fff;
   border-radius: 10px;
@@ -17,6 +17,7 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 label {
@@ -66,11 +67,13 @@ button:hover {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  font-size: 16px;
+  animation: fadeIn 0.6s ease;
 }
 
 .result-table th, .result-table td {
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 12px;
   text-align: center;
 }
 
@@ -83,7 +86,17 @@ button:hover {
   background: #f9f9f9;
 }
 
-/* Muzik */
+/* Jumlah pendapatan besar */
+.total {
+  margin-top: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  animation: fadeIn 0.7s ease;
+}
+
+/* Muzik toggle */
 .music-toggle {
   position: fixed;
   top: 15px;
@@ -96,7 +109,7 @@ button:hover {
   height: 30px;
 }
 
-/* Kredit pelangi */
+/* Rainbow kredit (statik ikut scroll) */
 @keyframes rainbow {
   0% { color: red; }
   20% { color: orange; }
@@ -107,11 +120,10 @@ button:hover {
 }
 
 .credit {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
   font-size: 12px;
   animation: rainbow 5s infinite;
+  margin-top: 40px;
+  text-align: left;
 }
 
 /* Animasi Fade */
