@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kira Komisen HaloTelco</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="music-toggle" id="musicToggle"></div>
+  <div class="music-toggle" id="musicToggle" tabindex="0" aria-label="Toggle music"></div>
   <div class="container">
-    <img src="IMG-20250603-WA0009.jpg" alt="Logo" class="logo-img">
-    <h1 style="font-family: 'Pacifico', cursive;">Team Jerung</h1>
+    <img src="IMG-20250603-WA0009.jpg" alt="Logo Team Jerung" class="logo" />
+    <h1 style="font-family: 'Pacifico', cursive; font-size: 2.4rem; margin-top: 10px;">Team Jerung</h1>
 
     <label for="tier1">Bilangan Dealer Tier 1:</label>
-    <input type="number" id="tier1" placeholder="Contoh: 5">
+    <input type="number" id="tier1" placeholder="Contoh: 5" min="1" />
 
     <label for="topup">Jumlah Topup Bulanan Setiap Dealer (RM):</label>
-    <input type="number" id="topup" placeholder="Contoh: 30">
+    <input type="number" id="topup" placeholder="Contoh: 30" min="1" />
 
     <button onclick="kiraKomisen()">Kira Komisen</button>
 
@@ -27,6 +28,7 @@
           <tr>
             <th>Tier</th>
             <th>Bilangan Dealer</th>
+            <th>Topup Bulanan (RM)</th>
             <th>Komisen (%)</th>
             <th>Pendapatan (RM)</th>
           </tr>
@@ -39,11 +41,13 @@
       </div>
     </div>
 
+    <canvas id="komisenChart" width="400" height="400" style="display:none; margin-top:30px;"></canvas>
+
     <div class="credit">web ini dibuat daripada Tokcik62</div>
   </div>
 
   <audio id="backgroundMusic" loop>
-    <source src="Halo-telco.mp3" type="audio/mpeg">
+    <source src="Halo-telco.mp3" type="audio/mpeg" />
   </audio>
 
   <script src="script.js"></script>
