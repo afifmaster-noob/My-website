@@ -19,6 +19,16 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.logo-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 15px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
 }
 
 label {
@@ -147,6 +157,7 @@ button:hover {
   outline: none;
   user-select: none;
   transition: transform 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .music-toggle:hover {
