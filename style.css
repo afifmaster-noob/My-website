@@ -1,75 +1,81 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #e0f7fa, #f8f9fa);
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
   padding: 20px;
-  margin: 0;
 }
 
 .container {
   max-width: 400px;
-  margin: 60px auto 80px auto;
-  background: #ffffff;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 25px;
-  color: #2c3e50;
+  margin-bottom: 20px;
 }
 
 label {
   display: block;
-  margin-top: 20px;
-  font-weight: 600;
-  color: #333;
+  margin-top: 15px;
+  font-weight: bold;
 }
 
 input {
   width: 100%;
   padding: 10px;
-  margin-top: 6px;
+  margin-top: 5px;
   box-sizing: border-box;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 5px;
 }
 
 button {
-  margin-top: 25px;
+  margin-top: 20px;
   width: 100%;
   padding: 12px;
-  background: #007BFF;
+  background: #28a745;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #0056b3;
+  background: #218838;
 }
 
 #output {
   margin-top: 20px;
   font-size: 18px;
   text-align: center;
-  color: #00796B;
-  font-weight: bold;
+  color: #333;
 }
 
-.footer {
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 12px;
+/* Kredit RGB */
+@keyframes rainbow {
+  0% { color: red; }
+  20% { color: orange; }
+  40% { color: yellow; }
+  60% { color: green; }
+  80% { color: blue; }
+  100% { color: violet; }
+}
+
+.credit {
   position: fixed;
-  bottom: 0;
-  width: 100%;
-  font-size: 0.95em;
-  letter-spacing: 0.5px;
+  bottom: 10px;
+  left: 10px;
+  font-size: 13px;
+  font-family: monospace;
+  animation: rainbow 5s infinite;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 14px;
+  border-radius: 8px;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
