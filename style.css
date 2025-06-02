@@ -110,6 +110,19 @@ button:hover {
   text-align: left;
 }
 
+/* Muzik Toggle */
+.music-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+}
+
+.music-toggle img {
+  width: 30px;
+  height: 30px;
+}
+
 /* Fade In */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
