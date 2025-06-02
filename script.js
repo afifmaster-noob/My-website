@@ -7,22 +7,28 @@ function kiraKomisen() {
     return;
   }
 
+  // Kiraan Tier
   const tier1 = dealerCount;
   const tier2 = tier1 * 10;
   const tier3 = tier2 * 10;
 
-  const totalTopupTier1 = tier1 * topupPerUser;
-  const totalTopupTier2 = tier2 * topupPerUser;
-  const totalTopupTier3 = tier3 * topupPerUser;
+  // Topup Bulanan Setiap Tier
+  const topupTier1 = tier1 * topupPerUser;
+  const topupTier2 = tier2 * topupPerUser;
+  const topupTier3 = tier3 * topupPerUser;
 
-  const komisen1 = totalTopupTier1 * 0.10;
-  const komisen2 = totalTopupTier2 * 0.03;
-  const komisen3 = totalTopupTier3 * 0.02;
+  // Komisen
+  const komisenTier1 = topupTier1 * 0.10;
+  const komisenTier2 = topupTier2 * 0.03;
+  const komisenTier3 = topupTier3 * 0.02;
 
-  const jumlah = komisen1 + komisen2 + komisen3;
+  // Jumlah Keseluruhan
+  const jumlahKomisen = komisenTier1 + komisenTier2 + komisenTier3;
 
+  // Paparkan grid
   const outputDiv = document.getElementById("output");
   outputDiv.classList.add("show");
+
   outputDiv.innerHTML = `
     <table class="result-table">
       <thead>
@@ -37,24 +43,24 @@ function kiraKomisen() {
         <tr>
           <td>Tier 1</td>
           <td>${tier1}</td>
-          <td>${totalTopupTier1.toFixed(2)}</td>
-          <td>${komisen1.toFixed(2)}</td>
+          <td>${topupTier1.toFixed(2)}</td>
+          <td>${komisenTier1.toFixed(2)}</td>
         </tr>
         <tr>
           <td>Tier 2</td>
           <td>${tier2}</td>
-          <td>${totalTopupTier2.toFixed(2)}</td>
-          <td>${komisen2.toFixed(2)}</td>
+          <td>${topupTier2.toFixed(2)}</td>
+          <td>${komisenTier2.toFixed(2)}</td>
         </tr>
         <tr>
           <td>Tier 3</td>
           <td>${tier3}</td>
-          <td>${totalTopupTier3.toFixed(2)}</td>
-          <td>${komisen3.toFixed(2)}</td>
+          <td>${topupTier3.toFixed(2)}</td>
+          <td>${komisenTier3.toFixed(2)}</td>
         </tr>
       </tbody>
     </table>
-    <div class="total">Jumlah Pendapatan: RM ${jumlah.toFixed(2)}</div>
+    <div class="total">Jumlah Pendapatan: <strong>RM ${jumlahKomisen.toFixed(2)}</strong></div>
   `;
 }
 
