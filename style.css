@@ -1,7 +1,8 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f0f0f0;
+  background: #fffde7; /* Latar kuning lembut */
   padding: 20px;
+  transition: background-color 0.5s ease;
 }
 
 .container {
@@ -12,6 +13,11 @@ body {
   padding: 25px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   animation: fadeIn 1s ease;
+  border: 3px solid #ffc107;
+  box-shadow:
+    0 0 8px #ffc107,
+    0 0 20px #ffca28,
+    0 0 30px #ffb300;
 }
 
 h1 {
@@ -44,6 +50,7 @@ button {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -67,6 +74,10 @@ button:hover {
   border-collapse: collapse;
   margin-top: 10px;
   font-size: 16px;
+  border: 2px solid #ffc107;
+  box-shadow:
+    0 0 8px #ffc107,
+    0 0 15px #ffca28;
 }
 
 .result-table th, .result-table td {
@@ -76,20 +87,21 @@ button:hover {
 }
 
 .result-table th {
-  background: #007bff;
-  color: white;
+  background: #ffca28;
+  color: #000;
+  font-weight: 700;
 }
 
 .result-table td {
-  background: #f9f9f9;
+  background: #fff8e1;
 }
 
-.total {
-  text-align: center;
-  font-size: 28px;
-  margin-top: 30px;
+.total-row td {
   font-weight: bold;
-  color: #000;
+  font-size: 18px;
+  background: #fff3cd;
+  color: #856404;
+  border-top: 3px solid #ffc107;
 }
 
 /* Rainbow credit text */
@@ -107,6 +119,7 @@ button:hover {
   animation: rainbow 5s infinite;
   margin-top: 60px;
   text-align: left;
+  font-family: 'Pacifico', cursive;
 }
 
 /* Muzik Toggle Button */
@@ -142,34 +155,4 @@ button:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
-}
-
-/* Logo Team Jerung */
-.logo-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.logo-container img {
-  width: 100px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
-.logo-caption {
-  font-size: 12px;
-  font-weight: bold;
-  color: #333;
-  margin-top: 5px;
-}
-
-/* Kesan output kiraan glowing */
-.highlighted-output {
-  background-color: #fff8b3;
-  border: 2px solid #ffc107;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 15px 4px #ffd54f;
-  transition: all 0.5s ease;
   }
