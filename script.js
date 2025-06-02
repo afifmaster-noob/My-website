@@ -1,18 +1,3 @@
-// Muzik Toggle
-const audio = document.getElementById('background-music');
-const icon = document.getElementById('music-icon');
-
-function toggleMusic() {
-  if (audio.paused) {
-    audio.play();
-    icon.src = 'sound-on.png';
-  } else {
-    audio.pause();
-    icon.src = 'sound-off.png';
-  }
-}
-
-// Kira Komisen dengan validasi dan output table
 function kiraKomisen() {
   const dealerCount = parseInt(document.getElementById('pengguna').value);
   const topupPerUser = parseFloat(document.getElementById('komisen').value);
@@ -69,3 +54,17 @@ function kiraKomisen() {
     <div class="total">Jumlah Pendapatan: RM ${jumlahKomisen.toFixed(2)}</div>
   `;
 }
+
+// Toggle muzik
+const audio = document.getElementById('background-music');
+const toggle = document.getElementById('music-toggle');
+
+function toggleMusic() {
+  if (audio.paused) {
+    audio.play();
+    toggle.style.backgroundImage = "url('sound-on.png')";
+  } else {
+    audio.pause();
+    toggle.style.backgroundImage = "url('sound-off.png')";
+  }
+      }
