@@ -1,9 +1,12 @@
+/* Umum */
 body {
   font-family: Arial, sans-serif;
   background: #f0f0f0;
   padding: 20px;
+  margin: 0;
 }
 
+/* Kotak utama */
 .container {
   max-width: 600px;
   margin: auto;
@@ -14,11 +17,13 @@ body {
   animation: fadeIn 1s ease;
 }
 
+/* Tajuk utama */
 h1 {
   text-align: center;
   margin-bottom: 20px;
 }
 
+/* Label dan input */
 label {
   display: block;
   margin-top: 15px;
@@ -34,6 +39,7 @@ input {
   border-radius: 5px;
 }
 
+/* Butang */
 button {
   margin-top: 20px;
   width: 100%;
@@ -44,12 +50,14 @@ button {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
   background: #218838;
 }
 
+/* Output hasil */
 #output {
   margin-top: 30px;
   opacity: 0;
@@ -62,6 +70,7 @@ button:hover {
   transform: translateY(0);
 }
 
+/* Jadual keputusan */
 .result-table {
   width: 100%;
   border-collapse: collapse;
@@ -84,6 +93,7 @@ button:hover {
   background: #f9f9f9;
 }
 
+/* Jumlah keseluruhan */
 .total {
   text-align: center;
   font-size: 28px;
@@ -92,7 +102,16 @@ button:hover {
   color: #000;
 }
 
-/* Rainbow credit text */
+/* Kredit pelangi */
+.credit {
+  position: static;
+  font-size: 14px;
+  animation: rainbow 5s infinite;
+  margin-top: 60px;
+  text-align: left;
+}
+
+/* Animasi pelangi */
 @keyframes rainbow {
   0% { color: red; }
   20% { color: orange; }
@@ -102,44 +121,31 @@ button:hover {
   100% { color: violet; }
 }
 
-.credit {
-  font-size: 14px;
-  animation: rainbow 5s infinite;
-  margin-top: 60px;
-  text-align: left;
+/* Animasi fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-/* Muzik Toggle Button */
+/* Butang muzik di bawah kiri */
 .music-toggle {
   position: fixed;
-  top: 15px;
-  left: 15px;
+  bottom: 20px;
+  left: 20px;
   width: 40px;
   height: 40px;
   background-image: url('sound-on.png');
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
+  -webkit-user-drag: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   transition: transform 0.2s ease;
 }
 
 .music-toggle:hover {
-  transform: scale(1.05);
-}
-
-.music-toggle:focus {
-  outline: none;
-}
-
-/* Fade In */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-    }
+  transform: scale(1.1);
+  }
