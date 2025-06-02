@@ -1,3 +1,18 @@
+// Muzik Toggle
+const audio = document.getElementById('background-music');
+const icon = document.getElementById('music-icon');
+
+function toggleMusic() {
+  if (audio.paused) {
+    audio.play();
+    icon.src = 'sound-on.png';
+  } else {
+    audio.pause();
+    icon.src = 'sound-off.png';
+  }
+}
+
+// Kiraan Komisen
 function kiraKomisen() {
   const dealerCount = parseInt(document.getElementById('pengguna').value);
   const topupPerUser = parseFloat(document.getElementById('komisen').value);
