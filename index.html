@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KIRA KIRA KOMISYEN HALOTELCO</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>KIRA KIRA KOMISYEN HALOTELCO</h1>
 
     <label for="pengguna">Jumlah dealer (Tier 1):</label>
-    <input type="number" id="pengguna" placeholder="Contoh: 10">
+    <input type="number" id="pengguna" placeholder="Contoh: 10" />
 
     <label for="komisen">Topup bulanan per dealer (RM):</label>
-    <input type="number" id="komisen" placeholder="Contoh: 10">
+    <input type="number" id="komisen" placeholder="Contoh: 10" />
 
     <button onclick="kiraKomisen()">Kira</button>
+
     <div id="output"></div>
   </div>
 
-  <!-- Butang Muzik -->
-  <div class="music-toggle" onclick="toggleMusic()" id="music-toggle">
-    <img id="music-icon" src="sound-on.png" alt="Music Toggle">
-  </div>
+  <!-- Butang muzik -->
+  <div class="music-toggle" id="music-toggle" onclick="toggleMusic()"></div>
 
   <!-- Audio -->
-  <audio id="background-music" loop autoplay>
-    <source src="Halo-telco.mp3" type="audio/mpeg">
+  <audio id="background-music" autoplay loop>
+    <source src="Halo-telco.mp3" type="audio/mpeg" />
   </audio>
 
   <p class="credit">Web made by Tokcik62</p>
