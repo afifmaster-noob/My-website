@@ -89,3 +89,69 @@ button:hover {
   width: 30px;
   height: 30px;
 }
+
+/* Komisen Tier Grid */
+.grid-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.grid-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.grid-container label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+}
+
+.grid-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.grid-container button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.grid-container button:hover {
+  background: #0056b3;
+}
+
+#result-tier {
+  margin-top: 30px;
+}
+
+#result-tier table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+#result-tier th, #result-tier td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#result-tier th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
