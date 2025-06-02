@@ -5,12 +5,12 @@ body {
 }
 
 .container {
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
   background: #fff;
   border-radius: 10px;
   padding: 25px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -43,17 +43,45 @@ button {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
   background: #218838;
 }
 
-#output {
-  margin-top: 20px;
-  font-size: 18px;
+/* Grid Hasil */
+.result-container {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.08);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.result-table th,
+.result-table td {
+  padding: 14px;
   text-align: center;
-  color: #333;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.result-table th {
+  background-color: #e6e6e6;
+  font-weight: bold;
+}
+
+/* Animasi Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Kredit RGB */
@@ -88,70 +116,4 @@ button:hover {
 .music-toggle img {
   width: 30px;
   height: 30px;
-}
-
-/* Komisen Tier Grid */
-.grid-container {
-  max-width: 600px;
-  margin: 50px auto;
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-.grid-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.grid-container label {
-  font-weight: bold;
-  display: block;
-  margin-top: 15px;
-}
-
-.grid-container input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.grid-container button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 12px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.grid-container button:hover {
-  background: #0056b3;
-}
-
-#result-tier {
-  margin-top: 30px;
-}
-
-#result-tier table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-#result-tier th, #result-tier td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
-
-#result-tier th {
-  background-color: #f8f9fa;
-  font-weight: bold;
 }
