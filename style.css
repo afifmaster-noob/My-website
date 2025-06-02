@@ -73,9 +73,5 @@ button:hover {
   font-size: 13px;
   font-family: monospace;
   animation: rainbow 5s infinite;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 8px 14px;
-  border-radius: 8px;
   z-index: 9999;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
