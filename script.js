@@ -1,18 +1,19 @@
-// Muzik Toggle
 const audio = document.getElementById('background-music');
-const icon = document.getElementById('music-icon');
+const musicToggle = document.getElementById('music-toggle');
 
-function toggleMusic() {
+musicToggle.addEventListener('click', () => {
   if (audio.paused) {
     audio.play();
-    icon.src = 'sound-on.png';
+    musicToggle.style.backgroundImage = "url('sound-on.png')";
   } else {
     audio.pause();
-    icon.src = 'sound-off.png';
+    musicToggle.style.backgroundImage = "url('sound-off.png')";
   }
-}
+});
 
-// Kiraan Komisen
+// Disable klik kanan pada toggle button supaya orang tak boleh save gambar
+musicToggle.addEventListener('contextmenu', e => e.preventDefault());
+
 function kiraKomisen() {
   const dealerCount = parseInt(document.getElementById('pengguna').value);
   const topupPerUser = parseFloat(document.getElementById('komisen').value);
