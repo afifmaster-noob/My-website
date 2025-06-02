@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DUPLIKASI KIRA KIRA KOMISYEN HALOTELCO</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kira Komisen ToneWow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Logo dan Nama Team -->
-  <div class="logo-container">
-    <img src="IMG-20250603-WA0009.jpg" alt="Logo" class="logo-img">
-    <div class="team-name">Team Jerung</div>
-  </div>
-
+  <div class="music-toggle" id="musicToggle"></div>
   <div class="container">
-    <h1>DUPLIKASI KIRA KIRA KOMISYEN HALOTELCO</h1>
+    <h1 style="font-family: 'Pacifico', cursive;">Team Jerung</h1>
+    <label for="tier1">Bilangan Dealer Tier 1:</label>
+    <input type="number" id="tier1" placeholder="Contoh: 5">
 
-    <label for="pengguna">Jumlah dealer (Tier 1):</label>
-    <input type="number" id="pengguna" placeholder="Contoh: 10">
+    <label for="topup">Jumlah Topup Bulanan Setiap Dealer (RM):</label>
+    <input type="number" id="topup" placeholder="Contoh: 30">
 
-    <label for="komisen">Topup bulanan per dealer (RM):</label>
-    <input type="number" id="komisen" placeholder="Contoh: 10">
+    <button onclick="kiraKomisen()">Kira Komisen</button>
 
-    <button onclick="kiraKomisen()">Kira</button>
+    <div id="output">
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Bilangan Dealer</th>
+            <th>Komisen (%)</th>
+            <th>Pendapatan (RM)</th>
+          </tr>
+        </thead>
+        <tbody id="resultBody"></tbody>
+      </table>
 
-    <div id="output"></div>
+      <div id="totalCommissionBox">
+        Jumlah Komisen Bulanan: <span id="totalCommissionDisplay">RM 0.00</span>
+      </div>
+    </div>
+
+    <div class="credit">web ini dibuat daripada Tokcik62</div>
   </div>
 
-  <!-- Butang Muzik -->
-  <div class="music-toggle" id="music-toggle" onclick="toggleMusic()"></div>
-
-  <!-- Audio -->
-  <audio id="background-music" loop autoplay>
-    <source src="Halo-telco.mp3" type="audio/mpeg">
+  <audio id="backgroundMusic" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
   </audio>
-
-  <p class="credit">Web made by Tokcik62</p>
 
   <script src="script.js"></script>
 </body>
