@@ -1,51 +1,63 @@
 function kiraKomisen() {
-  const pengguna = parseInt(document.getElementById('pengguna').value);
-  const komisen = parseFloat(document.getElementById('komisen').value);
+  const bilDealerTier1 = parseInt(document.getElementById('dealer-tier1').value);
+  const topupPerDealer = parseFloat(document.getElementById('topup').value);
 
-  if (isNaN(pengguna) || isNaN(komisen)) {
-    document.getElementById('output').innerText = "Sila masukkan nombor yang sah.";
+  if (isNaN(bilDealerTier1) || isNaN(topupPerDealer) || bilDealerTier1 <= 0 || topupPerDealer <= 0) {
+    document.getElementById('output').innerHTML = "<p style='color:red;'>Sila masukkan nombor yang sah dan lebih daripada 0.</p>";
     return;
   }
 
-  const jumlah = pengguna * komisen;
-  document.getElementById('output').innerText = "Jumlah komisen: RM " + jumlah.toFixed(2);
-}
+  // Auto kira bilangan dealer untuk setiap tier
+  const bilDealerTier2 = bilDealerTier1 * 10;
+  const bilDealerTier3 = bilDealerTier2 * 10;
 
-// Komisen Tier
-function kiraKomisenTier() {
-  const t1 = parseInt(document.getElementById('tier1').value) || 0;
-  const t2 = parseInt(document.getElementById('tier2').value) || 0;
-  const t3 = parseInt(document.getElementById('tier3').value) || 0;
+  // Kira komisen
+  const komisenTier1 = bilDealerTier1 * topupPerDealer * 0.10;
+  const komisenTier2 = bilDealerTier2 * topupPerDealer * 0.03;
+  const komisenTier3 = bilDealerTier3 * topupPerDealer * 0.02;
+  const jumlahKomisen = komisenTier1 + komisenTier2 + komisenTier3;
 
-  const t1topup = parseFloat(document.getElementById('topup1').value) || 0;
-  const t2topup = parseFloat(document.getElementById('topup2').value) || 0;
-  const t3topup = parseFloat(document.getElementById('topup3').value) || 0;
-
-  const t1kadar = 0.10, t2kadar = 0.03, t3kadar = 0.02;
-
-  const komisen1 = t1 * t1topup * t1kadar;
-  const komisen2 = t2 * t2topup * t2kadar;
-  const komisen3 = t3 * t3topup * t3kadar;
-
-  const jumlah = komisen1 + komisen2 + komisen3;
-
-  const tableHTML = `
-    <table>
-      <thead>
-        <tr><th>Tier</th><th>Dealer</th><th>Topup</th><th>Kadar</th><th>Komisen (RM)</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>${t1}</td><td>${t1topup.toFixed(2)}</td><td>10%</td><td>${komisen1.toFixed(2)}</td></tr>
-        <tr><td>2</td><td>${t2}</td><td>${t2topup.toFixed(2)}</td><td>3%</td><td>${komisen2.toFixed(2)}</td></tr>
-        <tr><td>3</td><td>${t3}</td><td>${t3topup.toFixed(2)}</td><td>2%</td><td>${komisen3.toFixed(2)}</td></tr>
-      </tbody>
-      <tfoot>
-        <tr><th colspan="4">Jumlah Komisen</th><th>RM ${jumlah.toFixed(2)}</th></tr>
-      </tfoot>
-    </table>
+  // Papar hasil
+  const outputHTML = `
+    <div class="result-container">
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Bilangan Dealer</th>
+            <th>Kadar Komisen</th>
+            <th>Jumlah Komisen (RM)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tier 1</td>
+            <td>${bilDealerTier1}</td>
+            <td>10%</td>
+            <td>RM ${komisenTier1.toFixed(2)}</td>
+          </tr>
+          <tr>
+            <td>Tier 2</td>
+            <td>${bilDealerTier2}</td>
+            <td>3%</td>
+            <td>RM ${komisenTier2.toFixed(2)}</td>
+          </tr>
+          <tr>
+            <td>Tier 3</td>
+            <td>${bilDealerTier3}</td>
+            <td>2%</td>
+            <td>RM ${komisenTier3.toFixed(2)}</td>
+          </tr>
+          <tr>
+            <th colspan="3">Jumlah Keseluruhan Komisen</th>
+            <th>RM ${jumlahKomisen.toFixed(2)}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   `;
 
-  document.getElementById('result-tier').innerHTML = tableHTML;
+  document.getElementById('output').innerHTML = outputHTML;
 }
 
 // Muzik Toggle
