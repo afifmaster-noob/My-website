@@ -1,70 +1,43 @@
 function kiraKomisen() {
-  const dealerCount = parseInt(document.getElementById('pengguna').value);
-  const topupPerUser = parseFloat(document.getElementById('komisen').value);
+  const tier1 = parseInt(document.getElementById("tier1").value);
+  const topup = parseFloat(document.getElementById("topup").value);
 
-  if (isNaN(dealerCount) || isNaN(topupPerUser) || dealerCount <= 0 || topupPerUser <= 0) {
-    alert("Sila isi semua ruangan dengan betul.");
+  if (isNaN(tier1) || isNaN(topup) || tier1 <= 0 || topup <= 0) {
+    alert("Sila masukkan nilai yang sah untuk semua medan.");
     return;
   }
 
-  const tier1 = dealerCount;
   const tier2 = tier1 * 5;
-  const tier3 = tier2 * 2;
+  const tier3 = tier2 * 5;
 
-  const komisenTier1 = tier1 * topupPerUser * 0.10;
-  const komisenTier2 = tier2 * topupPerUser * 0.03;
-  const komisenTier3 = tier3 * topupPerUser * 0.02;
+  const komisenTier1 = tier1 * topup * 0.10;
+  const komisenTier2 = tier2 * topup * 0.03;
+  const komisenTier3 = tier3 * topup * 0.02;
 
-  const jumlahKomisen = komisenTier1 + komisenTier2 + komisenTier3;
+  const jumlah = komisenTier1 + komisenTier2 + komisenTier3;
 
-  const outputDiv = document.getElementById("output");
-  outputDiv.classList.add("show");
-
-  outputDiv.innerHTML = `
-    <table class="result-table glow-grid">
-      <thead>
-        <tr>
-          <th>Tier</th>
-          <th>Bilangan Dealer</th>
-          <th>Topup Bulanan per Dealer (RM)</th>
-          <th>Komisen (RM)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Tier 1</td>
-          <td>${tier1}</td>
-          <td>${topupPerUser.toFixed(2)}</td>
-          <td>${komisenTier1.toFixed(2)} (10%)</td>
-        </tr>
-        <tr>
-          <td>Tier 2</td>
-          <td>${tier2}</td>
-          <td>${topupPerUser.toFixed(2)}</td>
-          <td>${komisenTier2.toFixed(2)} (3%)</td>
-        </tr>
-        <tr>
-          <td>Tier 3</td>
-          <td>${tier3}</td>
-          <td>${topupPerUser.toFixed(2)}</td>
-          <td>${komisenTier3.toFixed(2)} (2%)</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="total besar-glow">Jumlah Komisyen Bulanan: RM ${jumlahKomisen.toFixed(2)}</div>
+  const tbody = document.getElementById("resultBody");
+  tbody.innerHTML = `
+    <tr><td>Tier 1</td><td>${tier1}</td><td>10%</td><td>RM ${komisenTier1.toFixed(2)}</td></tr>
+    <tr><td>Tier 2</td><td>${tier2}</td><td>3%</td><td>RM ${komisenTier2.toFixed(2)}</td></tr>
+    <tr><td>Tier 3</td><td>${tier3}</td><td>2%</td><td>RM ${komisenTier3.toFixed(2)}</td></tr>
+    <tr class="total-row"><td colspan="3">Jumlah Pendapatan</td><td>RM ${jumlah.toFixed(2)}</td></tr>
   `;
+
+  document.getElementById("totalCommissionDisplay").textContent = "RM " + jumlah.toFixed(2);
+  document.getElementById("output").classList.add("show");
 }
 
-// Toggle muzik
-const audio = document.getElementById('background-music');
-const toggle = document.getElementById('music-toggle');
+// Muzik toggle
+const music = document.getElementById("backgroundMusic");
+const toggleBtn = document.getElementById("musicToggle");
 
-function toggleMusic() {
-  if (audio.paused) {
-    audio.play();
-    toggle.style.backgroundImage = "url('sound-on.png')";
+toggleBtn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    toggleBtn.style.backgroundImage = "url('sound-on.png')";
   } else {
-    audio.pause();
-    toggle.style.backgroundImage = "url('sound-off.png')";
+    music.pause();
+    toggleBtn.style.backgroundImage = "url('sound-off.png')";
   }
-}
+});
