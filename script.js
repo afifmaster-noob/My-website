@@ -8,8 +8,8 @@ function kiraKomisen() {
   }
 
   const tier1 = dealerCount;
-  const tier2 = tier1 * 10;
-  const tier3 = tier2 * 10;
+  const tier2 = tier1 * 5;
+  const tier3 = tier2 * 2;
 
   const komisenTier1 = tier1 * topupPerUser * 0.10;
   const komisenTier2 = tier2 * topupPerUser * 0.03;
@@ -20,17 +20,14 @@ function kiraKomisen() {
   const outputDiv = document.getElementById("output");
   outputDiv.classList.add("show");
 
-  // Tukar latar belakang kepada kuning bila hasil dikira
-  document.body.style.backgroundColor = "#fffde7";
-
   outputDiv.innerHTML = `
-    <table class="result-table">
+    <table class="result-table glow-grid">
       <thead>
         <tr>
           <th>Tier</th>
           <th>Bilangan Dealer</th>
           <th>Topup Bulanan per Dealer (RM)</th>
-          <th>Komisen (%) + RM</th>
+          <th>Komisen (RM)</th>
         </tr>
       </thead>
       <tbody>
@@ -38,30 +35,27 @@ function kiraKomisen() {
           <td>Tier 1</td>
           <td>${tier1}</td>
           <td>${topupPerUser.toFixed(2)}</td>
-          <td>10% = ${komisenTier1.toFixed(2)}</td>
+          <td>${komisenTier1.toFixed(2)} (10%)</td>
         </tr>
         <tr>
           <td>Tier 2</td>
           <td>${tier2}</td>
           <td>${topupPerUser.toFixed(2)}</td>
-          <td>3% = ${komisenTier2.toFixed(2)}</td>
+          <td>${komisenTier2.toFixed(2)} (3%)</td>
         </tr>
         <tr>
           <td>Tier 3</td>
           <td>${tier3}</td>
           <td>${topupPerUser.toFixed(2)}</td>
-          <td>2% = ${komisenTier3.toFixed(2)}</td>
-        </tr>
-        <tr class="total-row">
-          <td colspan="3"><strong>Jumlah Komisyen Bulanan</strong></td>
-          <td><strong>RM ${jumlahKomisen.toFixed(2)}</strong></td>
+          <td>${komisenTier3.toFixed(2)} (2%)</td>
         </tr>
       </tbody>
     </table>
+    <div class="total besar-glow">Jumlah Komisyen Bulanan: RM ${jumlahKomisen.toFixed(2)}</div>
   `;
 }
 
-// Muzik toggle
+// Toggle muzik
 const audio = document.getElementById('background-music');
 const toggle = document.getElementById('music-toggle');
 
