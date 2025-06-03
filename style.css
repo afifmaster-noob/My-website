@@ -1,9 +1,6 @@
 html, body {
   margin: 0;
   padding: 0;
-}
-
-body {
   font-family: Arial, sans-serif;
   background: #fffde7;
   padding: 20px;
@@ -21,32 +18,33 @@ body {
   border: 3px solid #ffc107;
 }
 
-/* Header Logo dan Team Jerung */
 .header {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .logo-img {
-  display: block;
-  max-width: 120px;
+  max-width: 150px;
   height: auto;
-  margin: 0 auto 10px auto;
-  border-radius: 50%;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  display: block;
+  margin: 0 auto;
 }
 
-.team-title {
+.team-jerung {
   font-family: 'Pacifico', cursive;
-  font-size: 20px;
-  margin: 0;
-  color: #444;
+  font-size: 18px;
+  margin: 5px 0 0 0;
+  color: #333;
 }
 
-h1 {
+.main-title {
+  font-size: 22px;
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 28px;
+  margin: 20px 0 30px 0;
+  font-weight: 700;
+  color: #333;
 }
 
 label {
@@ -81,6 +79,28 @@ button:hover {
   background: #218838;
 }
 
+.icon-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  padding: 0;
+}
+
+.icon-button img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.icon-label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+}
+
 #output {
   margin-top: 30px;
   opacity: 0;
@@ -93,10 +113,19 @@ button:hover {
   transform: translateY(0);
 }
 
+/* Scroll wrapper: tetap scroll tapi kita zoom out table supaya muat */
 .scroll-wrapper {
   width: 100%;
   overflow-x: auto;
   margin-top: 10px;
+}
+
+/* Zoom out supaya table muat */
+.zoom-out {
+  transform-origin: top left;
+  transform: scale(0.85);
+  /* Nak adjust skala ikut muat, contoh 0.85 */
+  /* Kamu boleh ubah scale jika table masih lebar */
 }
 
 .result-table {
@@ -192,26 +221,4 @@ button:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
-}
-
-.icon-button {
-  display: inline-block;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  text-align: center;
-}
-
-.icon-button img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-}
-
-.icon-label {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 5px;
-  text-align: center;
 }
