@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleBtn.style.outline = "none";
     toggleBtn.style.userSelect = "none";
   }
-
-  // Tiada manipulasi overflow di sini
 });
 
 function kiraKomisen() {
@@ -30,7 +28,7 @@ function kiraKomisen() {
   }
 
   const tier2 = tier1 * tier1;
-  const tier3 = tier2 * 2;
+  const tier3 = tier2 * tier1;
 
   const komisenTier1 = tier1 * topup * 0.10;
   const komisenTier2 = tier2 * topup * 0.03;
@@ -46,8 +44,10 @@ function kiraKomisen() {
   `;
 
   document.getElementById("totalCommissionDisplay").textContent = "RM " + jumlah.toFixed(2);
+  
+  const output = document.getElementById("output");
+  output.classList.add("show");
 
-  document.getElementById("output").classList.add("show");
-
-  // Scroll setting dikendalikan oleh CSS sepenuhnya — tiada class ditambah di JS
+  // Auto scroll ke grid output
+  output.scrollIntoView({ behavior: "smooth" });
 }
