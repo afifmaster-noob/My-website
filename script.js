@@ -17,12 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleBtn.style.userSelect = "none";
   }
 
-  // Sekat scroll kiri kanan sebelum output muncul
-  document.body.classList.remove("allow-horizontal-scroll"); 
-  // pastikan CSS body default overflow-x: hidden; atau set dalam CSS
+  // Tiada manipulasi overflow di sini
 });
 
-// Fungsi kira komisen
 function kiraKomisen() {
   const tier1 = parseInt(document.getElementById("tier1").value);
   const topup = parseFloat(document.getElementById("topup").value);
@@ -38,7 +35,6 @@ function kiraKomisen() {
   const komisenTier1 = tier1 * topup * 0.10;
   const komisenTier2 = tier2 * topup * 0.03;
   const komisenTier3 = tier3 * topup * 0.02;
-
   const jumlah = komisenTier1 + komisenTier2 + komisenTier3;
 
   const tbody = document.getElementById("resultBody");
@@ -53,6 +49,5 @@ function kiraKomisen() {
 
   document.getElementById("output").classList.add("show");
 
-  // Benarkan scroll kiri/kanan bila output muncul
-  document.body.classList.add("allow-horizontal-scroll");
+  // Scroll setting dikendalikan oleh CSS sepenuhnya — tiada class ditambah di JS
 }
