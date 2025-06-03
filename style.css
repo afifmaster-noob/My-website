@@ -1,6 +1,9 @@
 html, body {
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: Arial, sans-serif;
   background: #fffde7;
   padding: 20px;
@@ -18,33 +21,30 @@ html, body {
   border: 3px solid #ffc107;
 }
 
-.header {
+h1.main-title {
   text-align: center;
-  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  font-family: 'Pacifico', cursive;
+  color: #856404;
 }
 
 .logo-img {
-  max-width: 150px;
+  display: block;
+  max-width: 100%;
   height: auto;
+  margin: 0 auto 10px auto;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
-  display: block;
-  margin: 0 auto;
 }
 
-.team-jerung {
+h2.team-jerung {
+  text-align: center;
+  margin-top: 0;
   font-family: 'Pacifico', cursive;
   font-size: 18px;
-  margin: 5px 0 0 0;
-  color: #333;
-}
-
-.main-title {
-  font-size: 22px;
-  text-align: center;
-  margin: 20px 0 30px 0;
-  font-weight: 700;
-  color: #333;
+  color: #856404;
 }
 
 label {
@@ -79,28 +79,6 @@ button:hover {
   background: #218838;
 }
 
-.icon-button {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  text-align: center;
-  padding: 0;
-}
-
-.icon-button img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-}
-
-.icon-label {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 5px;
-  text-align: center;
-}
-
 #output {
   margin-top: 30px;
   opacity: 0;
@@ -113,34 +91,29 @@ button:hover {
   transform: translateY(0);
 }
 
-/* Scroll wrapper: tetap scroll tapi kita zoom out table supaya muat */
 .scroll-wrapper {
   width: 100%;
   overflow-x: auto;
   margin-top: 10px;
 }
 
-/* Zoom out supaya table muat */
-.zoom-out {
-  transform-origin: top left;
-  transform: scale(0.85);
-  /* Nak adjust skala ikut muat, contoh 0.85 */
-  /* Kamu boleh ubah scale jika table masih lebar */
-}
-
 .result-table {
-  width: 100%;
-  min-width: 700px;
+  width: 100% !important;
+  table-layout: fixed;
   border-collapse: collapse;
-  font-size: 16px;
+  font-size: 14px;
   border: 2px solid #ffc107;
   box-shadow: 0 0 8px #ffc107, 0 0 15px #ffca28;
+  overflow-wrap: break-word;
+  transform-origin: left top;
+  transition: transform 0.3s ease;
 }
 
 .result-table th, .result-table td {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
+  word-wrap: break-word;
 }
 
 .result-table th {
@@ -170,10 +143,18 @@ button:hover {
   text-align: center;
   box-shadow: 0 0 10px #ffc107, 0 0 20px #ffca28;
   animation: fadeIn 0.5s ease-in-out;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+#totalCommissionBox br {
+  display: block;
+  margin-bottom: 5px;
 }
 
 #totalCommissionDisplay {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
   color: #856404;
   text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
@@ -221,4 +202,4 @@ button:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
-       }
+}
