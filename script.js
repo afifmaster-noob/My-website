@@ -26,7 +26,28 @@ function kiraKomisen() {
 
   document.getElementById("totalCommissionDisplay").textContent = "RM " + jumlah.toFixed(2);
   document.getElementById("output").classList.add("show");
-  document.body.classList.add("allow-horizontal-scroll");
 
-  paparkanCarta(komisenTier1, komisenTier2, komisenTier3);
-      }
+  // Benarkan scroll kiri/kanan bila output muncul
+  document.body.style.overflowX = "auto";
+}
+
+// Muzik toggle
+const music = document.getElementById("backgroundMusic");
+const toggleBtn = document.getElementById("musicToggle");
+
+toggleBtn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    toggleBtn.style.backgroundImage = "url('sound-on.png')";
+  } else {
+    music.pause();
+    toggleBtn.style.backgroundImage = "url('sound-off.png')";
+  }
+});
+
+// Hilangkan highlight biru bila klik butang
+toggleBtn.style.outline = "none";
+toggleBtn.style.userSelect = "none";
+
+// Cegah scroll kiri/kanan sebelum output muncul
+document.body.style.overflowX = "hidden";
