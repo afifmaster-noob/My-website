@@ -41,6 +41,9 @@ function kiraKomisen() {
   `;
   tbody.appendChild(totalRow);
 
+  // **Tambah baris ini supaya total komisen juga dipaparkan dalam elemen bawah jadual**
+  document.getElementById('totalCommissionDisplay').textContent = `RM ${totalKomisen.toFixed(2)}`;
+
   // Tunjuk output box
   const output = document.getElementById('output');
   output.classList.add('show');
