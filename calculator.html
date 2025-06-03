@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kalkulator Mini</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"
+    integrity="sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .calculator {
+      display: inline-block;
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    #result {
+      width: 100%;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      text-align: right;
+      box-sizing: border-box;
+      background: #fff;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 20px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #388e3c;
+    }
+
+    button.equals {
+      background-color: #2196f3;
+    }
+
+    button.zero {
+      grid-column: span 2;
+    }
+
+    /* Button kembali */
+    .nav-icon-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      top: -60px;
+      left: 0;
+    }
+
+    .icon-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      filter: none; /* pastikan tiada background */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Butang kembali -->
+  <button onclick="window.location.href='HaloTelco.html'" class="nav-icon-btn" title="Kembali ke HaloTelco">
+    <img src="back-arrow.png" alt="Kembali" class="icon-img" />
+  </button>
+
+  <div class="calculator">
+    <input type="text" id="result" readonly />
+
+    <div class="buttons">
+      <button onclick="clr()">C</button>
+      <button onclick="dis('/')">/</button>
+      <button onclick="dis('*')">*</button>
+      <button onclick="dis('-')">-</button>
+
+      <button onclick="dis('7')">7</button>
+      <button onclick="dis('8')">8</button>
+      <button onclick="dis('9')">9</button>
+      <button onclick="dis('+')">+</button>
+
+      <button onclick="dis('4')">4</button>
+      <button onclick="dis('5')">5</button>
+      <button onclick="dis('6')">6</button>
+      <button onclick="solve()" class="equals">=</button>
+
+      <button onclick="dis('1')">1</button>
+      <button onclick="dis('2')">2</button>
+      <button onclick="dis('3')">3</button>
+      <button onclick="dis('0')" class="zero">0</button>
+      <button onclick="dis('.')">.</button>
+    </div>
+  </div>
+
+  <script>
+    function dis(val) {
+      document.getElementById("result").value += val;
+    }
+
+    function clr() {
+      document.getElementById("result").value = "";
+    }
+
+    function solve() {
+      try {
+        const x = document.getElementById("result").value;
+        const y = math.evaluate(x);
+        document.getElementById("result").value = y;
+      } catch (err) {
+        document.getElementById("result").value = "Error";
+      }
+    }
+  </script>
+</body>
+
+</html>
