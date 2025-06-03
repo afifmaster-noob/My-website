@@ -1,29 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Muzik toggle setup
-  const music = document.getElementById("backgroundMusic");
-  const toggleBtn = document.getElementById("musicToggle");
-
-  if (toggleBtn && music) {
-    toggleBtn.addEventListener("click", () => {
-      if (music.paused) {
-        music.play();
-        toggleBtn.style.backgroundImage = "url('sound-on.png')";
-      } else {
-        music.pause();
-        toggleBtn.style.backgroundImage = "url('sound-off.png')";
-      }
-    });
-
-    // Hilangkan highlight biru & pilih teks
-    toggleBtn.style.outline = "none";
-    toggleBtn.style.userSelect = "none";
-  }
-
-  // Cegah scroll kiri/kanan sebelum output muncul
-  document.body.style.overflowX = "hidden";
-});
-
-// Fungsi utama kira komisen
 function kiraKomisen() {
   const tier1 = parseInt(document.getElementById("tier1").value);
   const topup = parseFloat(document.getElementById("topup").value);
@@ -33,18 +7,15 @@ function kiraKomisen() {
     return;
   }
 
-  // Kiraan bilangan tier
   const tier2 = tier1 * tier1;
   const tier3 = tier2 * 2;
 
-  // Kiraan komisen
   const komisenTier1 = tier1 * topup * 0.10;
   const komisenTier2 = tier2 * topup * 0.03;
   const komisenTier3 = tier3 * topup * 0.02;
 
   const jumlah = komisenTier1 + komisenTier2 + komisenTier3;
 
-  // Masukkan data ke dalam jadual
   const tbody = document.getElementById("resultBody");
   tbody.innerHTML = `
     <tr><td>Tier 1</td><td>${tier1}</td><td>RM ${topup.toFixed(2)}</td><td>10%</td><td>RM ${komisenTier1.toFixed(2)}</td></tr>
@@ -53,12 +24,35 @@ function kiraKomisen() {
     <tr class="total-row"><td colspan="4">Jumlah Pendapatan</td><td>RM ${jumlah.toFixed(2)}</td></tr>
   `;
 
-  // Papar jumlah besar
   document.getElementById("totalCommissionDisplay").textContent = "RM " + jumlah.toFixed(2);
-
-  // Tunjukkan animasi output
   document.getElementById("output").classList.add("show");
 
-  // Benarkan scroll kiri/kanan bila output muncul
+  // Aktifkan scroll mendatar bila output muncul
   document.body.classList.add("allow-horizontal-scroll");
 }
+
+// Muzik toggle
+const music = document.getElementById("backgroundMusic");
+const toggleBtn = document.getElementById("musicToggle");
+
+toggleBtn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    toggleBtn.style.backgroundImage = "url('sound-on.png')";
+  } else {
+    music.pause();
+    toggleBtn.style.backgroundImage = "url('sound-off.png')";
+  }
+});
+
+toggleBtn.style.outline = "none";
+toggleBtn.style.userSelect = "none";
+document.body.style.overflowX = "hidden";
+
+// Sekat klik kanan atas butang calculator/back
+document.addEventListener("contextmenu", function (e) {
+  const isProtectedBtn = e.target.closest(".calculator-button, .back-button");
+  if (isProtectedBtn) {
+    e.preventDefault();
+  }
+});
