@@ -21,19 +21,32 @@ body {
   border: 3px solid #ffc107;
 }
 
-h1 {
+/* Header Logo dan Team Jerung */
+.header {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 28px;
+  margin-bottom: 25px;
 }
 
 .logo-img {
   display: block;
-  max-width: 100%;
+  max-width: 120px;
   height: auto;
-  margin: 0 auto 15px auto;
-  border-radius: 10px;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.team-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+  margin: 0;
+  color: #444;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
 }
 
 label {
