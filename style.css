@@ -1,7 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Lock horizontal scroll by default */
+  overflow-x: hidden;
 }
 
 body.allow-horizontal-scroll {
@@ -137,6 +137,14 @@ button:hover {
   text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
 }
 
+.credit {
+  font-size: 14px;
+  animation: rainbow 5s infinite;
+  margin-top: 60px;
+  text-align: left;
+  font-family: 'Pacifico', cursive;
+}
+
 @keyframes rainbow {
   0% { color: red; }
   20% { color: orange; }
@@ -144,14 +152,6 @@ button:hover {
   60% { color: green; }
   80% { color: blue; }
   100% { color: violet; }
-}
-
-.credit {
-  font-size: 14px;
-  animation: rainbow 5s infinite;
-  margin-top: 60px;
-  text-align: left;
-  font-family: 'Pacifico', cursive;
 }
 
 .music-toggle {
@@ -169,6 +169,7 @@ button:hover {
   user-select: none;
   transition: transform 0.2s ease;
   -webkit-tap-highlight-color: transparent;
+  z-index: 999;
 }
 
 .music-toggle:hover {
@@ -178,4 +179,27 @@ button:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
+}
+
+/* Tambahan untuk ikon kalkulator dan butang navigasi */
+.icon-button {
+  display: inline-block;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+}
+
+.icon-button img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.icon-label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
 }
