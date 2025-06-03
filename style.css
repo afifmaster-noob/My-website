@@ -1,11 +1,6 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-}
-
-body.allow-horizontal-scroll {
-  overflow-x: auto;
 }
 
 body {
@@ -85,14 +80,19 @@ button:hover {
   transform: translateY(0);
 }
 
+.scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
 .result-table {
   width: 100%;
+  min-width: 700px;
   border-collapse: collapse;
-  margin-top: 10px;
   font-size: 16px;
   border: 2px solid #ffc107;
   box-shadow: 0 0 8px #ffc107, 0 0 15px #ffca28;
-  overflow-x: auto;
 }
 
 .result-table th, .result-table td {
@@ -181,7 +181,6 @@ button:hover {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Tambahan untuk ikon kalkulator dan butang navigasi */
 .icon-button {
   display: inline-block;
   border: none;
