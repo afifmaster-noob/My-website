@@ -9,6 +9,10 @@
     integrity="sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>
+    html, body {
+      overflow-x: hidden;
+    }
+
     body {
       background-color: #f9f9f9;
       font-family: Arial, sans-serif;
@@ -55,10 +59,19 @@
       color: white;
       cursor: pointer;
       transition: background-color 0.2s;
+      user-select: none;
     }
 
     button:hover {
       background-color: #388e3c;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    button::-moz-focus-inner {
+      border: 0;
     }
 
     button.equals {
@@ -77,21 +90,25 @@
       position: absolute;
       top: -60px;
       left: 0;
+      padding: 0;
     }
 
     .icon-img {
       width: 48px;
       height: 48px;
       object-fit: contain;
-      filter: none; /* pastikan tiada background */
+      filter: none;
+      user-select: none;
+      -webkit-user-drag: none;
     }
   </style>
 </head>
 
 <body>
   <!-- Butang kembali -->
-  <button onclick="window.location.href='HaloTelco.html'" class="nav-icon-btn" title="Kembali ke HaloTelco">
-    <img src="back-arrow.png" alt="Kembali" class="icon-img" />
+  <button onclick="window.location.href='HaloTelco.html'" class="nav-icon-btn" title="Kembali ke HaloTelco"
+    onmousedown="return false;" onselectstart="return false;">
+    <img src="back-arrow.png" alt="Kembali" class="icon-img" draggable="false" />
   </button>
 
   <div class="calculator">
