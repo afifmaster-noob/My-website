@@ -88,36 +88,16 @@ button:hover {
   transform: translateY(0);
 }
 
-/* Scroll wrapper untuk jadual besar */
-.scroll-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin-top: 10px;
-  padding-bottom: 10px;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-}
-
-/* Scrollbar gaya custom */
-.scroll-wrapper::-webkit-scrollbar {
-  height: 8px;
-}
-
-.scroll-wrapper::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 5px;
-}
-
 /* Jadual komisen */
 .result-table {
-  width: max-content;
+  width: 100%;
   min-width: 600px;
   border-collapse: collapse;
   font-size: 18px;
   border: 2px solid #ffc107;
   box-shadow: 0 0 8px #ffc107, 0 0 15px #ffca28;
   table-layout: auto;
+  overflow-x: auto;
 }
 
 .result-table th, .result-table td {
