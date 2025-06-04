@@ -18,11 +18,9 @@ function toggleMusic() {
 // Pasang fungsi toggle pada klik div
 icon.addEventListener('click', toggleMusic);
 
-// Tetapkan ikon awal ikut status muzik
+// Tetapkan ikon awal sebagai 'bunyi dibuka' bila masuk web
 document.addEventListener('DOMContentLoaded', function () {
-  icon.style.backgroundImage = audio.paused
-    ? "url('sound-off.png')"
-    : "url('sound-on.png')";
+  icon.style.backgroundImage = "url('sound-on.png')";
 });
 
 
