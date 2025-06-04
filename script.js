@@ -2,44 +2,43 @@ document.addEventListener('DOMContentLoaded', function () {
   const musicToggle = document.getElementById('musicToggle');
   const backgroundMusic = document.getElementById('backgroundMusic');
 
-  // Initialize isPlaying berdasarkan keadaan muzik (kalau sudah auto-play, tapi biasanya false)
   let isPlaying = false;
 
   function updateMusicIcon() {
-    // Jika muzik sedang main, ikon tunjuk sound-off (tutup)
-    // Jika muzik berhenti, ikon tunjuk sound-on (buka)
     musicToggle.style.backgroundImage = isPlaying
       ? "url('sound-off.png')"
       : "url('sound-on.png')";
   }
 
-  musicToggle.addEventListener('click', function () {
-    if (isPlaying) {
-      backgroundMusic.pause();
-      isPlaying = false;
-    } else {
-      backgroundMusic.play().then(() => {
-        // Success main muzik
-        isPlaying = true;
-      }).catch(() => {
-        // Kalau play gagal (contoh auto-play di browser), set isPlaying false
+  musicToggle.addEventListener('click', async function () {
+    try {
+      if (isPlaying) {
+        backgroundMusic.pause();
         isPlaying = false;
-      });
+      } else {
+        await backgroundMusic.play();
+        isPlaying = true;
+      }
+    } catch (err) {
+      console.warn("Playback failed:", err);
+      isPlaying = false;
     }
     updateMusicIcon();
   });
 
-  // Kemas kini ikon ikut keadaan muzik sebenar (kalau muzik berhenti dari luar toggle)
-  backgroundMusic.addEventListener('ended', () => {
-    isPlaying = false;
+  // Sync icon if user control audio externally
+  backgroundMusic.addEventListener('play', () => {
+    isPlaying = true;
     updateMusicIcon();
   });
+
   backgroundMusic.addEventListener('pause', () => {
     isPlaying = false;
     updateMusicIcon();
   });
-  backgroundMusic.addEventListener('play', () => {
-    isPlaying = true;
+
+  backgroundMusic.addEventListener('ended', () => {
+    isPlaying = false;
     updateMusicIcon();
   });
 
@@ -53,7 +52,6 @@ function kiraKomisen() {
   const totalCommissionDisplay = document.getElementById('totalCommissionDisplay');
   const output = document.getElementById('output');
 
-  // Reset output
   resultBody.innerHTML = '';
   totalCommissionDisplay.textContent = 'RM 0.00';
   output.classList.remove('show');
@@ -63,36 +61,29 @@ function kiraKomisen() {
     return;
   }
 
-  // Kiraan Tier
   const tier2 = tier1 * 5;
   const tier3 = tier2 * 5;
 
-  // Komisen (%) mengikut tier
   const komisen1 = 0.10;
   const komisen2 = 0.03;
   const komisen3 = 0.02;
 
-  // Jumlah topup setiap tier
   const jumlahTopup1 = tier1 * topup;
   const jumlahTopup2 = tier2 * topup;
   const jumlahTopup3 = tier3 * topup;
 
-  // Kiraan komisen setiap tier
   const pendapatan1 = jumlahTopup1 * komisen1;
   const pendapatan2 = jumlahTopup2 * komisen2;
   const pendapatan3 = jumlahTopup3 * komisen3;
 
-  // Jumlah komisen keseluruhan
   const jumlahSemua = pendapatan1 + pendapatan2 + pendapatan3;
 
-  // Data untuk paparan jadual
   const tiers = [
     { name: 'Tier 1', dealer: tier1, topup: jumlahTopup1, rate: komisen1, income: pendapatan1 },
     { name: 'Tier 2', dealer: tier2, topup: jumlahTopup2, rate: komisen2, income: pendapatan2 },
     { name: 'Tier 3', dealer: tier3, topup: jumlahTopup3, rate: komisen3, income: pendapatan3 }
   ];
 
-  // Papar jadual
   tiers.forEach(tier => {
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -105,9 +96,6 @@ function kiraKomisen() {
     resultBody.appendChild(row);
   });
 
-  // Papar jumlah komisen akhir
   totalCommissionDisplay.textContent = 'RM ' + jumlahSemua.toFixed(2);
-
-  // Tunjukkan output dengan animasi (pastikan CSS class 'show' wujud)
   output.classList.add('show');
-                          }
+}
