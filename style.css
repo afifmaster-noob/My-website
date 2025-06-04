@@ -91,7 +91,7 @@ button:hover {
 /* Scroll wrapper untuk jadual besar */
 .scroll-wrapper {
   width: 100%;
-  overflow-x: auto;
+  overflow-x: auto;      /* scroll hanya bila perlu */
   overflow-y: hidden;
   margin-top: 10px;
   padding-bottom: 10px;
@@ -111,11 +111,10 @@ button:hover {
 
 /* Jadual komisen */
 .result-table {
-  width: 100%;
-  min-width: 400px;
-  max-width: 100%;
+  width: max-content;   /* ikut lebar kandungan sebenar */
+  min-width: 300px;     /* minimum lebar kecil */
   border-collapse: collapse;
-  font-size: 18px;
+  font-size: 14px;      /* kecilkan font supaya grid padat */
   border: 2px solid #ffc107;
   box-shadow: 0 0 8px #ffc107, 0 0 15px #ffca28;
   table-layout: auto;
@@ -123,9 +122,9 @@ button:hover {
 
 .result-table th, .result-table td {
   border: 1px solid #ccc;
-  padding: 10px 15px;
+  padding: 6px 10px;   /* padding kecil supaya tidak terlalu besar */
   text-align: center;
-  white-space: nowrap;
+  white-space: nowrap;  /* elak teks melipat */
 }
 
 .result-table th {
@@ -140,7 +139,7 @@ button:hover {
 
 .total-row td {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   background: #fff3cd;
   color: #856404;
   border-top: 3px solid #ffc107;
