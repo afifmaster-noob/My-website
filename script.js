@@ -1,20 +1,33 @@
 // Muzik Toggle
-const audio = document.getElementById('background-music');
-const icon = document.getElementById('music-icon');
+const audio = document.getElementById('backgroundMusic');
+const icon = document.getElementById('musicToggle');
 
 function toggleMusic() {
   if (audio.paused) {
     audio.play().then(() => {
-      icon.src = 'sound-on.png';
+      icon.style.backgroundImage = "url('sound-on.png')";
     }).catch(err => {
-      console.warn('Playback failed:', err);
+      console.warn("Playback failed:", err);
     });
   } else {
     audio.pause();
-    icon.src = 'sound-off.png';
+    icon.style.backgroundImage = "url('sound-off.png')";
   }
 }
 
+// Pasang fungsi toggle pada klik div
+icon.addEventListener('click', toggleMusic);
+
+// Tetapkan ikon awal ikut status muzik
+document.addEventListener('DOMContentLoaded', function () {
+  icon.style.backgroundImage = audio.paused
+    ? "url('sound-off.png')"
+    : "url('sound-on.png')";
+});
+
+
+
+// Fungsi Kira Komisen
 function kiraKomisen() {
   const tier1 = parseInt(document.getElementById('tier1').value) || 0;
   const topup = parseFloat(document.getElementById('topup').value) || 0;
