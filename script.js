@@ -18,11 +18,21 @@ function toggleMusic() {
 // Pasang fungsi toggle pada klik div
 icon.addEventListener('click', toggleMusic);
 
-// Tetapkan ikon awal sebagai 'bunyi dibuka' bila masuk web
+// Tetapkan ikon awal bila masuk web ikut status audio
 document.addEventListener('DOMContentLoaded', function () {
-  icon.style.backgroundImage = "url('sound-on.png')";
-});
+  if (audio.paused) {
+    icon.style.backgroundImage = "url('sound-off.png')";
+  } else {
+    icon.style.backgroundImage = "url('sound-on.png')";
+  }
 
+  // Cuba autoplay bila masuk web
+  audio.play().then(() => {
+    icon.style.backgroundImage = "url('sound-on.png')";
+  }).catch(() => {
+    icon.style.backgroundImage = "url('sound-off.png')";
+  });
+});
 
 
 // Fungsi Kira Komisen
@@ -42,7 +52,7 @@ function kiraKomisen() {
     return;
   }
 
-  // Betulkan formula tier 2 & 3 ikut arahan
+  // Kiraan jumlah dealer berdasarkan formula: T2 = T1 * T1, T3 = T1 * T2
   const tier2 = tier1 * tier1;
   const tier3 = tier1 * tier2;
 
@@ -50,7 +60,7 @@ function kiraKomisen() {
   const komisen2 = 0.03;
   const komisen3 = 0.02;
 
-  // Topup bulanan untuk setiap tier adalah sama ikut input topup sahaja
+  // Topup setiap dealer sama untuk semua tier
   const jumlahTopup1 = tier1 * topup;
   const jumlahTopup2 = tier2 * topup;
   const jumlahTopup3 = tier3 * topup;
@@ -81,4 +91,7 @@ function kiraKomisen() {
 
   totalCommissionDisplay.textContent = 'RM ' + jumlahSemua.toFixed(2);
   output.classList.add('show');
+
+  // Auto scroll ke grid output
+  output.scrollIntoView({ behavior: 'smooth' });
 }
