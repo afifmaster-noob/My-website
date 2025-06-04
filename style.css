@@ -88,20 +88,31 @@ button:hover {
   transform: translateY(0);
 }
 
+/* Scroll wrapper untuk jadual besar */
 .scroll-wrapper {
   width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   margin-top: 10px;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
-.zoom-out.scroll-wrapper {
-  transform: none !important;
-  white-space: nowrap;
+/* Scrollbar gaya custom */
+.scroll-wrapper::-webkit-scrollbar {
+  height: 8px;
 }
 
+.scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+/* Jadual komisen */
 .result-table {
   width: max-content;
-  min-width: 100%;
+  min-width: 600px;
   border-collapse: collapse;
   font-size: 18px;
   border: 2px solid #ffc107;
