@@ -42,13 +42,15 @@ function kiraKomisen() {
     return;
   }
 
-  const tier2 = tier1 * 5;
-  const tier3 = tier2 * 5;
+  // Betulkan formula tier 2 & 3 ikut arahan
+  const tier2 = tier1 * tier1;
+  const tier3 = tier1 * tier2;
 
   const komisen1 = 0.10;
   const komisen2 = 0.03;
   const komisen3 = 0.02;
 
+  // Topup bulanan untuk setiap tier adalah sama ikut input topup sahaja
   const jumlahTopup1 = tier1 * topup;
   const jumlahTopup2 = tier2 * topup;
   const jumlahTopup3 = tier3 * topup;
@@ -60,9 +62,9 @@ function kiraKomisen() {
   const jumlahSemua = pendapatan1 + pendapatan2 + pendapatan3;
 
   const tiers = [
-    { name: 'Tier 1', dealer: tier1, topup: jumlahTopup1, rate: komisen1, income: pendapatan1 },
-    { name: 'Tier 2', dealer: tier2, topup: jumlahTopup2, rate: komisen2, income: pendapatan2 },
-    { name: 'Tier 3', dealer: tier3, topup: jumlahTopup3, rate: komisen3, income: pendapatan3 }
+    { name: 'Tier 1', dealer: tier1, topup: topup, rate: komisen1, income: pendapatan1 },
+    { name: 'Tier 2', dealer: tier2, topup: topup, rate: komisen2, income: pendapatan2 },
+    { name: 'Tier 3', dealer: tier3, topup: topup, rate: komisen3, income: pendapatan3 }
   ];
 
   tiers.forEach(tier => {
