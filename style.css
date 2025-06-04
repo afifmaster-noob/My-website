@@ -88,6 +88,7 @@ button:hover {
   transform: translateY(0);
 }
 
+/* Scroll wrapper untuk jadual besar */
 .scroll-wrapper {
   width: 100%;
   overflow-x: auto;
@@ -98,6 +99,7 @@ button:hover {
   scroll-behavior: smooth;
 }
 
+/* Scrollbar gaya custom */
 .scroll-wrapper::-webkit-scrollbar {
   height: 8px;
 }
@@ -107,9 +109,11 @@ button:hover {
   border-radius: 5px;
 }
 
+/* Jadual komisen */
 .result-table {
-  width: max-content;
-  min-width: 600px;
+  width: 100%;
+  min-width: 400px;
+  max-width: 100%;
   border-collapse: collapse;
   font-size: 18px;
   border: 2px solid #ffc107;
@@ -224,48 +228,4 @@ button:hover {
   font-weight: bold;
   margin-top: 5px;
   text-align: center;
-}
-
-/* ✅ Tambahan responsive layout */
-@media screen and (max-width: 600px) {
-  .container {
-    padding: 15px;
-    border-width: 2px;
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-
-  .team-jerung {
-    font-size: 16px;
-  }
-
-  input, button {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .result-table {
-    font-size: 12px;
-    min-width: 480px;
-  }
-
-  #totalCommissionDisplay {
-    font-size: 24px;
-  }
-
-  .music-toggle {
-    width: 35px;
-    height: 35px;
-  }
-
-  .icon-button img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .icon-label {
-    font-size: 12px;
-  }
 }
