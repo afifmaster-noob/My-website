@@ -88,16 +88,33 @@ button:hover {
   transform: translateY(0);
 }
 
-/* Jadual komisen */
-.result-table {
+.scroll-wrapper {
   width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+.result-table {
+  width: max-content;
   min-width: 600px;
   border-collapse: collapse;
   font-size: 18px;
   border: 2px solid #ffc107;
   box-shadow: 0 0 8px #ffc107, 0 0 15px #ffca28;
   table-layout: auto;
-  overflow-x: auto;
 }
 
 .result-table th, .result-table td {
@@ -207,4 +224,48 @@ button:hover {
   font-weight: bold;
   margin-top: 5px;
   text-align: center;
+}
+
+/* ✅ Tambahan responsive layout */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 15px;
+    border-width: 2px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .team-jerung {
+    font-size: 16px;
+  }
+
+  input, button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .result-table {
+    font-size: 12px;
+    min-width: 480px;
+  }
+
+  #totalCommissionDisplay {
+    font-size: 24px;
+  }
+
+  .music-toggle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon-button img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-label {
+    font-size: 12px;
+  }
 }
