@@ -2,8 +2,8 @@ function kiraKomisen() {
   const tier1 = parseInt(document.getElementById('tier1').value) || 0;
   const topup = parseFloat(document.getElementById('topup').value) || 0;
 
-  const tier2 = tier1 * 3;  // contoh kiraan tier 2 ikut tier 1
-  const tier3 = tier2 * 2;  // contoh kiraan tier 3 ikut tier 2
+  const tier2 = tier1 * 2;       // Betul ikut logik anda
+  const tier3 = tier1 * tier2;   // Tier 3 = tier1 × tier2
 
   const komisenRates = [10, 3, 2]; // %
   const tiers = [
@@ -32,7 +32,6 @@ function kiraKomisen() {
     tbody.appendChild(row);
   });
 
-  // Total row
   const totalRow = document.createElement('tr');
   totalRow.classList.add('total-row');
   totalRow.innerHTML = `
@@ -41,18 +40,14 @@ function kiraKomisen() {
   `;
   tbody.appendChild(totalRow);
 
-  // **Tambah baris ini supaya total komisen juga dipaparkan dalam elemen bawah jadual**
   document.getElementById('totalCommissionDisplay').textContent = `RM ${totalKomisen.toFixed(2)}`;
 
-  // Tunjuk output box
   const output = document.getElementById('output');
   output.classList.add('show');
 
-  // Reset zoom table dulu
   const table = document.querySelector('.result-table');
   table.style.transform = "none";
 
-  // Auto zoom out table kalau lebar table lebih dari container
   const containerWidth = document.querySelector('.container').clientWidth;
   const tableWidth = table.scrollWidth;
 
