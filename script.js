@@ -2,9 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const musicToggle = document.getElementById('musicToggle');
   const backgroundMusic = document.getElementById('backgroundMusic');
 
+  // Initialize isPlaying berdasarkan keadaan muzik (kalau sudah auto-play, tapi biasanya false)
   let isPlaying = false;
 
   function updateMusicIcon() {
+    // Jika muzik sedang main, ikon tunjuk sound-off (tutup)
+    // Jika muzik berhenti, ikon tunjuk sound-on (buka)
     musicToggle.style.backgroundImage = isPlaying
       ? "url('sound-off.png')"
       : "url('sound-on.png')";
@@ -13,10 +16,30 @@ document.addEventListener('DOMContentLoaded', function () {
   musicToggle.addEventListener('click', function () {
     if (isPlaying) {
       backgroundMusic.pause();
+      isPlaying = false;
     } else {
-      backgroundMusic.play();
+      backgroundMusic.play().then(() => {
+        // Success main muzik
+        isPlaying = true;
+      }).catch(() => {
+        // Kalau play gagal (contoh auto-play di browser), set isPlaying false
+        isPlaying = false;
+      });
     }
-    isPlaying = !isPlaying;
+    updateMusicIcon();
+  });
+
+  // Kemas kini ikon ikut keadaan muzik sebenar (kalau muzik berhenti dari luar toggle)
+  backgroundMusic.addEventListener('ended', () => {
+    isPlaying = false;
+    updateMusicIcon();
+  });
+  backgroundMusic.addEventListener('pause', () => {
+    isPlaying = false;
+    updateMusicIcon();
+  });
+  backgroundMusic.addEventListener('play', () => {
+    isPlaying = true;
     updateMusicIcon();
   });
 
@@ -85,6 +108,6 @@ function kiraKomisen() {
   // Papar jumlah komisen akhir
   totalCommissionDisplay.textContent = 'RM ' + jumlahSemua.toFixed(2);
 
-  // Tunjukkan output dengan animasi
+  // Tunjukkan output dengan animasi (pastikan CSS class 'show' wujud)
   output.classList.add('show');
-}
+                          }
